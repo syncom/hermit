@@ -45,7 +45,7 @@ func NewEnvTestFixture(t *testing.T, handler http.Handler) *EnvTestFixture {
 
 	log, buf := ui.NewForTesting()
 
-	err = hermit.Init(log, envDir, "", stateDir, hermit.Config{})
+	err = hermit.Init(log, envDir, "", stateDir, hermit.Config{}, "BYPASS")
 	require.NoError(t, err)
 
 	server := httptest.NewServer(handler)
